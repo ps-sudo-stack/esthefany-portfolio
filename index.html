@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESTHEFANY — Creative Portfolio | 2026 | Medellín, Colombia</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome CDN for clean UI Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- External Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="text-charcoal-text min-h-screen flex flex-col justify-between selection:bg-terracotta selection:text-white select-none">
+
+  <!-- Top Navigation Header -->
+  <header class="sticky top-0 z-50 bg-[#FAF6ED]/90 backdrop-blur-md border-b border-sand-border/60 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="text-2xl font-serif text-terracotta font-medium tracking-tight hover:opacity-85 transition">
+        Esthefany.
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm tracking-wide font-medium">
+        <a href="#gallery" class="text-charcoal-text/80 hover:text-terracotta transition-colors">Portfolio</a>
+        <a href="#about" class="text-charcoal-text/80 hover:text-terracotta transition-colors">About Me</a>
+        <a href="#contact" class="text-charcoal-text/80 hover:text-terracotta transition-colors">Contact</a>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-charcoal-text p-2 rounded-lg hover:bg-sand-border/30 focus:outline-none" aria-label="Toggle Navigation Menu">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobileMenu" class="hidden md:hidden bg-cream border-b border-sand-border px-6 py-4 space-y-3">
+      <a href="#gallery" class="mobile-nav-link block text-charcoal-text hover:text-terracotta font-medium py-1">Portfolio</a>
+      <a href="#about" class="mobile-nav-link block text-charcoal-text hover:text-terracotta font-medium py-1">About Me</a>
+      <a href="#contact" class="mobile-nav-link block text-charcoal-text hover:text-terracotta font-medium py-1">Contact</a>
+    </div>
+  </header>
+
+  <!-- Central Showcase Gallery Grid -->
+  <main class="flex-grow pt-8">
+    <section id="gallery" class="max-w-6xl mx-auto px-4 py-6">
+      <div class="relative flex items-center justify-center gap-2 md:gap-6">
+        
+        <!-- Left Side Arrow -->
+        <button id="prevMainBtn" class="p-3 md:p-4 rounded-full bg-cream-card/80 hover:bg-white text-charcoal-text hover:text-terracotta border border-sand-border transition-all transform hover:scale-105 card-shadow-sm flex-shrink-0 z-10" aria-label="Previous photo">
+          <i class="fa-solid fa-chevron-left text-sm md:text-base"></i>
+        </button>
+
+        <!-- Main 3-Column Showcase Container -->
+        <div class="flex items-center justify-center gap-3 md:gap-5 w-full max-w-4xl">
+          
+          <!-- Left 2x2 Small Photos Grid -->
+          <div class="hidden sm:grid grid-cols-2 gap-2.5 w-48 md:w-56 flex-shrink-0">
+            <div class="photo-container aspect-square rounded-lg overflow-hidden border border-sand-border card-shadow-sm cursor-pointer transform hover:scale-[1.03] transition-all relative" onclick="selectPhoto(1)">
+              <img id="sideImg1" src="img/photo2.jpg" alt="Portfolio shoot thumbnail 1" class="w-full h-full object-cover" ondragstart="return false;">
+              <div class="watermark-text">Esthefany</div>
+              <div class="copyright-bar">&copy; Esthefany</div>
+            </div>
+            <div class="photo-container aspect-square rounded-lg overflow-hidden border border-sand-border card-shadow-sm cursor-pointer transform hover:scale-[1.03] transition-all relative" onclick="selectPhoto(2)">
+              <img id="sideImg2" src="img/photo3.jpg" alt="Portfolio shoot thumbnail 2" class="w-full h-full object-cover" ondragstart="return false;">
+              <div class="watermark-text">Esthefany</div>
+              <div class="copyright-bar">&copy; Esthefany</div>
+            </div>
+            <div class="photo-container aspect-square rounded-lg overflow-hidden border border-sand-border card-shadow-sm cursor-pointer transform hover:scale-[1.03] transition-all relative" onclick="selectPhoto(3)">
+              <img id="sideImg3" src="img/photo4.jpg" alt="Portfolio shoot thumbnail 3" class="w-full h-full object-cover" ondragstart="return false;">
+              <div class="watermark-text">Esthefany</div>
+              <div class="copyright-bar">&copy; Esthefany</div>
+            </div>
+            <div class="photo-container aspect-square rounded-lg overflow-hidden border border-sand-border card-shadow-sm cursor-pointer transform hover:scale-[1.03] transition-all relative" onclick="selectPhoto(4)">
+              <img id="sideImg4" src="img/photo5.jpg" alt="Portfolio shoot thumbnail 4" class="w-full h-full object-cover" ondragstart="return false;">
+              <div class="watermark-text">Esthefany</div>
+              <div class="copyright-bar">&copy; Esthefany</div>
+            </div>
+          </div>
+
+          <!-- Featured Center Main Photo Card -->
+          <div id="featuredImgContainer" class="photo-container relative w-64 md:w-80 h-80 md:h-[26rem] rounded-xl overflow-hidden border-2 border-sand-border card-shadow bg-cream-card flex-shrink-0 cursor-pointer group">
+            <img id="featuredImg" src="img/photo1.jpg" alt="Esthefany Featured Portfolio Photo" class="w-full h-full object-cover img-fade-transition" ondragstart="return false;">
+            
+            <!-- Watermark Overlay -->
+            <div class="watermark-text">Esthefany</div>
+            
+            <!-- Bottom Copyright Bar -->
+            <div class="copyright-bar">&copy; Esthefany</div>
+
+            <!-- Hover Click To Expand Hint -->
+            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-sm font-medium gap-2 pointer-events-none">
+              <i class="fa-solid fa-expand text-base"></i> View Fullscreen
+            </div>
+          </div>
+
+          <!-- Right 2x2 Small Photos Grid -->
+          <div class="hidden sm:grid grid-cols-2 gap-2.5 w-48 md:w-56 flex-shrink-0">
+            <div class="photo-container aspect-square rounded-lg overflow-hidden border border-sand-border card-shadow-sm cursor-pointer transform hover:scale-[1.03] transition-all relative" onclick="selectPhoto(5)">
+              <img id="sideImg5" src="img/photo6.jpg" alt="Portfolio shoot thumbnail 5" class="w-full h-full object-cover" ondragstart="return false;">
+              <div class="watermark-text">Esthefany</div>
+              <div class="copyright-bar">&copy; Esthefany</div>
+            </div>
+            <div class="photo-container aspect-square rounded-lg overflow-hidden border border-sand-border card-shadow-sm cursor-pointer transform hover:scale-[1.03] transition-all relative" onclick="selectPhoto(6)">
+              <img id="sideImg6" src="img/photo7.jpg" alt="Portfolio shoot thumbnail 6" class="w-full h-full object-cover" ondragstart="return false;">
+              <div class="watermark-text">Esthefany</div>
+              <div class="copyright-bar">&copy; Esthefany</div>
+            </div>
+            <div class="photo-container aspect-square rounded-lg overflow-hidden border border-sand-border card-shadow-sm cursor-pointer transform hover:scale-[1.03] transition-all relative" onclick="selectPhoto(7)">
+              <img id="sideImg7" src="img/photo8.jpg" alt="Portfolio shoot thumbnail 7" class="w-full h-full object-cover" ondragstart="return false;">
+              <div class="watermark-text">Esthefany</div>
+              <div class="copyright-bar">&copy; Esthefany</div>
+            </div>
+            <div class="photo-container aspect-square rounded-lg overflow-hidden border border-sand-border card-shadow-sm cursor-pointer transform hover:scale-[1.03] transition-all relative" onclick="selectPhoto(8)">
+              <img id="sideImg8" src="img/photo9.jpg" alt="Portfolio shoot thumbnail 8" class="w-full h-full object-cover" ondragstart="return false;">
+              <div class="watermark-text">Esthefany</div>
+              <div class="copyright-bar">&copy; Esthefany</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Side Arrow -->
+        <button id="nextMainBtn" class="p-3 md:p-4 rounded-full bg-cream-card/80 hover:bg-white text-charcoal-text hover:text-terracotta border border-sand-border transition-all transform hover:scale-105 card-shadow-sm flex-shrink-0 z-10" aria-label="Next photo">
+          <i class="fa-solid fa-chevron-right text-sm md:text-base"></i>
+        </button>
+
+      </div>
+
+      <!-- Bottom Thumbnail Carousel Strip -->
+      <div class="mt-8 flex items-center justify-center">
+        <div class="inline-flex items-center bg-cream-card/90 backdrop-blur-sm border border-sand-border rounded-xl p-2 px-3 card-shadow-sm space-x-2 max-w-full">
+          <button id="thumbPrevBtn" class="p-2 text-charcoal-text/70 hover:text-terracotta transition" aria-label="Scroll thumbnails left">
+            <i class="fa-solid fa-chevron-left text-xs"></i>
+          </button>
+          
+          <div id="thumbScrollContainer" class="thumbnail-scroll-container flex items-center space-x-2.5 overflow-x-auto max-w-[280px] sm:max-w-[420px] py-1 px-1">
+            <!-- Thumbnails rendered dynamically via JS -->
+          </div>
+
+          <button id="thumbNextBtn" class="p-2 text-charcoal-text/70 hover:text-terracotta transition" aria-label="Scroll thumbnails right">
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="max-w-4xl mx-auto px-4 py-16">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-serif text-charcoal-text tracking-wide">About Me</h2>
+        <div class="w-12 h-0.5 bg-terracotta/60 mx-auto mt-2 rounded-full"></div>
+      </div>
+
+      <div class="bg-cream-card/90 backdrop-blur-sm border border-sand-border rounded-2xl p-8 md:p-12 card-shadow text-charcoal-text/85 leading-relaxed space-y-4">
+        <p class="text-base md:text-lg">
+          Hello! My name is <strong class="text-charcoal-text font-semibold">Esthefany</strong>. I am a 20-year-old creative based in the beautiful, vibrant city of <strong class="text-charcoal-text font-semibold">Medellín, Colombia</strong>.
+        </p>
+        <p class="text-base md:text-lg">
+          I have a deep passion for visual storytelling, creative direction, and capturing authentic beauty in everyday moments. This portfolio is a curated collection showcasing my aesthetic journey, personal style, and creative endeavors.
+        </p>
+        <p class="text-base md:text-lg">
+          Whether collaborating on fashion editorials, portraiture, or digital branding, I bring a warm, refined, and thoughtful perspective to every project.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-4xl mx-auto px-4 pt-4 pb-20">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-serif text-charcoal-text tracking-wide">Contact</h2>
+        <div class="w-12 h-0.5 bg-terracotta/60 mx-auto mt-2 rounded-full"></div>
+      </div>
+
+      <div class="bg-cream-card/90 backdrop-blur-sm border border-sand-border rounded-2xl p-8 card-shadow max-w-md mx-auto space-y-4">
+        <div class="flex items-center justify-between pb-3 border-b border-sand-border/70">
+          <span class="font-medium text-charcoal-text/80 flex items-center gap-2">
+            <i class="fa-regular fa-envelope text-terracotta"></i> Email
+          </span>
+          <a href="mailto:esthefany@gmail.com" class="text-terracotta hover:underline font-medium">esthefany@gmail.com</a>
+        </div>
+
+        <div class="flex items-center justify-between pb-3 border-b border-sand-border/70">
+          <span class="font-medium text-charcoal-text/80 flex items-center gap-2">
+            <i class="fa-brands fa-instagram text-terracotta"></i> Instagram
+          </span>
+          <span class="text-charcoal-text font-medium">@mmm66_</span>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <span class="font-medium text-charcoal-text/80 flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-terracotta"></i> Location
+          </span>
+          <span class="text-charcoal-text font-medium">Medellín, Colombia</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fullscreen Modal Lightbox Popup -->
+  <div id="photoLightbox" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-md flex items-center justify-center transition-opacity duration-300">
+    <!-- Close Button -->
+    <button id="closeLightboxBtn" class="absolute top-5 right-5 text-white/80 hover:text-white text-3xl z-50 p-3 transition" aria-label="Close fullscreen modal">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- Lightbox Navigation Left -->
+    <button id="lightboxPrevBtn" class="absolute left-4 md:left-8 text-white/80 hover:text-white text-2xl md:text-3xl z-50 p-3 bg-black/30 rounded-full hover:bg-black/60 transition" aria-label="Previous image">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- Lightbox Image Wrapper -->
+    <div class="relative max-w-[90vw] max-h-[85vh] flex items-center justify-center overflow-hidden rounded-lg border border-white/10 shadow-2xl">
+      <img id="lightboxImg" src="" alt="Fullscreen View" class="max-w-full max-h-[85vh] object-contain select-none" ondragstart="return false;">
+      <div class="watermark-text watermark-lightbox">Esthefany</div>
+      <div class="copyright-bar copyright-lightbox">&copy; Esthefany</div>
+    </div>
+
+    <!-- Lightbox Navigation Right -->
+    <button id="lightboxNextBtn" class="absolute right-4 md:right-8 text-white/80 hover:text-white text-2xl md:text-3xl z-50 p-3 bg-black/30 rounded-full hover:bg-black/60 transition" aria-label="Next image">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-cream-card/80 border-t border-sand-border py-6 text-center text-xs text-charcoal-text/60">
+    <p>&copy; 2026 Esthefany. All rights reserved.</p>
+  </footer>
+
+  <!-- External Custom JS -->
+  <script src="js/script.js"></script>
+</body>
+</html>
